@@ -1,0 +1,19 @@
+Real-Life Example:
+-> Imagine a secure web application where users must log in to access certain features.
+-> Once logged in, the server generates a JWT that encodes some of the user's information, such as their username.
+
+-> When the user makes subsequent requests to the server, they include this token in the "Authorization" header.
+-> The server, through JwtAuthenticationFilter, extracts this token, validates it using JwtService, and ensures that it is associated with a valid user.
+
+-> This mechanism helps the server identify and authorize the user, allowing or denying access to specific resources based on the user's permissions,
+without requiring them to log in with every request.
+
+Pros:
+-> Statelessness: JWT enables stateless authentication, meaning the server does not need to store session information.
+-> Flexibility: JWT can include various claims, offering flexibility in encoding user information and permissions.
+
+Cons:
+-> Token Theft: If a token is stolen, it can be used by a malicious user until it expires.
+-> No Immediate Revocation: There's no simple way to revoke a JWT. If a token needs to be invalidated (e.g., user logs out), special handling is required.
+
+More Info on JWT structure: https://www.youtube.com/watch?v=_XbXkVdoG_0&t=48s
